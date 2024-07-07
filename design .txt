@@ -1,0 +1,15 @@
+Design 
+
+this app was mainly designed using figma ,"not my design"
+
+styles used are of tailwinds and chance library 
+
+developed using typescript and React
+
+
+-the first stage  was building a completed app in one component of a working todo app
+-The second stage was to devid the app  into its respective components 
+-third test the app 
+
+-during the development process, i used a mock api for to-dos that gets all to-dos (the actual to-dos) but it doesn't remove add or patch 
+rather simulates the requests of(put ,patch ,add)
