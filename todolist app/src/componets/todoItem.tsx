@@ -1,7 +1,7 @@
 import { TableCell, TableRow } from "./ui/table";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 type TodoItem = {
   id: number;
@@ -14,12 +14,18 @@ type Props = {
   childern: TodoItem;
   handelDelete: any;
   handleUpdate: any;
+  editTodo: any;
 };
 const Status = [
   { value: false, label: "Ongoing" },
   { value: true, label: "completed" },
 ];
-const TodoItem = ({ childern, handelDelete, handleUpdate }: Props) => {
+const TodoItem = ({
+  childern,
+  handelDelete,
+  handleUpdate,
+  editTodo,
+}: Props) => {
   function DeleteTodo(id: number) {
     handelDelete(id);
   }
@@ -27,6 +33,10 @@ const TodoItem = ({ childern, handelDelete, handleUpdate }: Props) => {
   function handelStatus(id: number, e: FormEvent) {
     handleUpdate(id, JSON.parse((e.target as HTMLInputElement).value));
   }
+  function handle(childern) {
+    editTodo(childern);
+  }
+  console.log(childern);
   return (
     <>
       <TableRow>
@@ -60,6 +70,7 @@ const TodoItem = ({ childern, handelDelete, handleUpdate }: Props) => {
           >
             <TrashIcon className=" stroke-white  w-5 h-5  group-hover:stroke-red-800 " />
           </Button>
+          <Button onClick={() => handle(childern)}>Edit</Button>
         </TableCell>
       </TableRow>
     </>
